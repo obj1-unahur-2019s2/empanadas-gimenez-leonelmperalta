@@ -24,16 +24,10 @@ object galvan {
 	
 	}
 	method cobrarSueldo(){
-		if(deuda < self.sueldo()){
-		
-			var restoSueldo = self.sueldo() - deuda
-			deuda = 0
-			dinero += restoSueldo
-		}
-		else{
-			
-			deuda -= self.sueldo()
-		}
+		dinero = self.sueldo()
+		var aDescontar = deuda.min(dinero)
+		deuda -= aDescontar
+		dinero -= aDescontar
 	}
 }
 
